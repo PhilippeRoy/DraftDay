@@ -1,21 +1,31 @@
+var testData = [{name: 'Philippe', points:400},{name:'Jobe', points: 50},{name:'Nick', points: 107}];
+
 function Table(tableData) {
 }
 
 Table.prototype = {
 
-  createTable : function(tableData){
+  init : function(tableData){
     console.log('created');
-    if(tableData === typeof Array){
+    //console.log(tableData === typeof Array);
+    console.log(tableData.length > 0);
+    //if(tableData === typeof Array){
       if(tableData.length > 0) {
         var table = '<table>';
         for(var i = 0; i < tableData.length; i++){
-        table += '<tr><td>';
-        table += tableData[i].name;
-        table += '</td ><td >';
-        //add points
+          table += '<tr><td>';
+          table += tableData[i].name;
+          table += '</td><td>';
+          table += tableData[i].points
+          table += '</td><tr>';
         }
-      }
+
+        table += '</table>';
+        return table;
+        //add event listeners
+    //  }
     }
+
   },
 
   addRow : function (playerObj){
@@ -33,20 +43,7 @@ Table.prototype = {
 
 
 var globalTable = new Table();
-
-
 var backTable = new Table();
 
-
-backTable.createTable();
-
-globalTable = {
-   sayhi: function(msg){
-    console.log(msg);
-  }
-}
-
-globalTable.removeRow();
-
-
-globalTable.sayhi('yo');
+console.log(backTable.createTable(testData));
+document.getElementsByTagName('body')[0].innerHTML = backTable.init(testData);
