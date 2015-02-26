@@ -33,10 +33,11 @@ Dashboard.prototype = {
 
   },
 
-  addTable : function(table){
-     //console.log(table);
+  addTable : function(table, tableData){
+     //console.log(this);
      //need to bind to caller
-     table.init();
+     this.appendChild(table.init(tableData));
+
   }
 }
 
@@ -47,9 +48,21 @@ function Table(name) {
 Table.prototype = {
 
   init : function(tableData){
-    console.log('created');
+    console.log(this);
 
     var table = document.createElement('table');
+
+    if(tableData.length > 0){
+      for(var i = 0; i < tableData.length; i++){
+        var tr = document.createElement('tr');
+        //tr.appendChild(this.addRow(tableData[i]));
+        table.appendChild(tr);
+      }
+    }
+
+
+    return table; //attach to caller
+
     //document.getElementById(this.name).appendChild(table);
 
     //console.log(tableData === typeof Array);
@@ -87,6 +100,12 @@ Table.prototype = {
   addRow : function (playerObj){
     console.log('addded');
 
+    // for(var i = 0; i < playerObj.length; i++){
+    //   var td = document.createElement('td');
+    //   var textNode = documentCreateTextNode(playerObj[i]);
+    //   //add the two together and return
+    // }
+
 
   },
   removeRow : function(index){
@@ -102,12 +121,13 @@ var dashboard = new Dashboard('master');
 //Create Dashboard
 var theDashboard = dashboard.createModule();
 
-var backsSubModule = dashboard.createSubModule('global');
-
+var globalSubModule = dashboard.createSubModule('global');
 
 var globalTable = new Table('global');
 
-theDashboard.addTable(globalTable);
+//console.log(globalSubModule);
+
+dashboard.addTable.call(globalSubModule, globalTable, testData);
 
 //globalTable.init(testData);
 globalTable.gatherTablesData = function(){
