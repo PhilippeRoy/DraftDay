@@ -8,6 +8,8 @@ function addElement(tag, location, before) {
 
 }
 
+//creat global Data obj
+
 //Classes
 function Dashboard(name) {
   this.name = name;
@@ -34,8 +36,7 @@ Dashboard.prototype = {
   },
 
   addTable : function(table, tableData){
-     //console.log(this);
-     //need to bind to caller
+
      this.appendChild(table.init(tableData));
 
   }
@@ -48,45 +49,18 @@ function Table(name) {
 Table.prototype = {
 
   init : function(tableData){
-    console.log(this);
+    //console.log(tableData);
+    //console.log(this);
 
     var table = document.createElement('table');
 
     if(tableData.length > 0){
       for(var i = 0; i < tableData.length; i++){
-        var tr = document.createElement('tr');
-        //tr.appendChild(this.addRow(tableData[i]));
-        table.appendChild(tr);
+        table.appendChild(this.addRow(tableData[i]));
       }
     }
 
-
     return table; //attach to caller
-
-    //document.getElementById(this.name).appendChild(table);
-
-    //console.log(tableData === typeof Array);
-    //if(tableData === typeof Array){
-      // if(tableData.length > 0) {
-      //   var table = '<table>';
-      //   for(var i = 0; i < tableData.length; i++){
-      //     table += '<tr><td>';
-      //     table += tableData[i].name;
-      //     table += '</td><td>';
-      //     table += tableData[i].points;
-      //     table += '</td><td>';
-      //     table += '<button class="select">selected</button>';
-      //     table += '<button class="delete">delete</button>';
-      //     table += '</td><tr>';
-      //   }
-      //
-      //   table += '</table>';
-      //   return table;
-        //add event listeners
-        //on hover - display delete button
-    //  }
-    //}
-
   },
 
   addListener : function(){
@@ -98,13 +72,21 @@ Table.prototype = {
   },
 
   addRow : function (playerObj){
-    console.log('addded');
 
-    // for(var i = 0; i < playerObj.length; i++){
-    //   var td = document.createElement('td');
-    //   var textNode = documentCreateTextNode(playerObj[i]);
-    //   //add the two together and return
-    // }
+    var tr = document.createElement('tr');
+    console.log(playerObj.length);
+
+    for (var val in playerObj){
+      console.log(playerObj[val]);
+
+      var td = document.createElement('td');
+      var textNode = document.createTextNode(playerObj[val]);
+      td.appendChild(textNode);
+      tr.appendChild(td);
+      //add the two together and return
+    }
+
+    return tr;
 
 
   },
@@ -119,25 +101,18 @@ Table.prototype = {
 
 var dashboard = new Dashboard('master');
 //Create Dashboard
+
 var theDashboard = dashboard.createModule();
+//create submodules
 
 var globalSubModule = dashboard.createSubModule('global');
+var globalSubModule = dashboard.createSubModule('backs');
+
+//create Tables
 
 var globalTable = new Table('global');
+var backTable = new Table();
 
 //console.log(globalSubModule);
 
 dashboard.addTable.call(globalSubModule, globalTable, testData);
-
-//globalTable.init(testData);
-globalTable.gatherTablesData = function(){
-  //find all submoles in master
-  //read tables and make array
-  //sort array
-  //output array
-}
-
-
-//var backTable = new Table();
-
-//document.getElementsByTagName('body')[0].innerHTML = backTable.init(testData);
