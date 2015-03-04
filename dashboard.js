@@ -1,30 +1,28 @@
 function Dashboard(name) {
   this.name = name;
+  this.dashboard = document.createElement('div');
+  this.dashboard.setAttribute('id',this.name);
+  document.body.appendChild(this.dashboard);
+  this.dashboard.subModule = {};
 }
 
 Dashboard.prototype = {
 
-  createModule : function(){
-
-    var dashboard = '<div id='+this.name+' ></div>';
-    document.body.innerHTML = dashboard;
-
-    return document.getElementById(this.name)
-  },
 
   createSubModule : function(name){
 
     var subModule = document.createElement('div');
     subModule.className = name + ' ' + 'module';
-    document.getElementById(this.name).appendChild(subModule);
 
-    return document.getElementById(this.name).getElementsByClassName(name)[0];
+    this.dashboard.subModule[name] = this.dashboard.appendChild(subModule);
+
+    return this.dashboard.subModule[name];
 
   },
 
-  addTable : function(table){
+  addTable : function(tableObj){
 
-     this.appendChild(table);
+     return this.appendChild(tableObj.table);
 
   }
 }

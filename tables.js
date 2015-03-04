@@ -1,31 +1,37 @@
-function Table(name) {
+function Table(name ) {
   this.name = name;
+  this.table = document.createElement('table');
+
 }
 
 Table.prototype = {
 
-  init : function(tableData){
-
-    var table = document.createElement('table');
+  addData : function(tableData){
 
     if(tableData != undefined){
       for(var i = 0; i < tableData.length; i++){
-        table.appendChild(this.addRow(tableData[i]));
+        this.table.appendChild(this.addRow(tableData[i]));
       }
     }
 
-    return table; //attach to caller
   },
 
   addRow : function (playerObj){
 
     var tr = document.createElement('tr');
+    var myTeam = document.createElement('button');
+    var disable = document.createElement('button');
+
+    myTeam.appendChild(document.createTextNode('myTeam'));
+    disable.appendChild(document.createTextNode('disable'));
 
     for (var val in playerObj){
 
       var td = document.createElement('td');
       var textNode = document.createTextNode(playerObj[val]);
       td.appendChild(textNode);
+      td.appendChild(myTeam);
+      td.appendChild(disable);
       tr.appendChild(td);
       //add the two together and return
     }
@@ -55,12 +61,35 @@ Table.prototype = {
     // }
   },
 
+  // readData:function(module, data, filter){
+  //   //read data from global
+  //   //filter by position
+  //   //this <- table
+  //
+  //   var table = module.getElementsByTagName('table')[0];
+  //
+  //   var arr = [];
+  //
+  //   for (var i = 0; i < data.length; i++){
+  //     if(data[i]['position'] === filter){
+  //       arr.push(data[i]);
+  //     }
+  //   }
+  //
+  //   for(var i = 0; i < arr.length; i++){
+  //     table.appendChild(this.addRow(arr[i]));
+  //   }
+  //
+  // },
+
+
   readData:function(data, filter){
     //read data from global
     //filter by position
     //this <- table
 
-    console.log(this);
+    var table = this.table;
+
     var arr = [];
 
     for (var i = 0; i < data.length; i++){
@@ -70,11 +99,18 @@ Table.prototype = {
     }
 
     for(var i = 0; i < arr.length; i++){
-      this.appendChild(this.addRow(arr[i]));
+      table.appendChild(this.addRow(arr[i]));
     }
 
   },
-  addListener : function(){
+
+
+  addListener : function(table){
+    table.addEventListener('click', function(e){
+      //this tr all td disable
+      console.log(e.target.innerHTML);
+    })
+   //Just as listener to table
 
   },
 
