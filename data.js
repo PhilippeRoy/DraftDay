@@ -10,3 +10,14 @@ var testData = [
 
 
 //creat global Data obj
+// var glbData = {};
+// var usrData = {
+//   usrList = [
+//     /*playerObj = {
+//       name: '',
+//       points: '',
+//       position: '',
+//       availibility: 'notavailable | available | injured'
+//     }*/
+//   ],
+// }

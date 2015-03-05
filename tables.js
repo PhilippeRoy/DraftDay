@@ -1,7 +1,12 @@
 function Table(name ) {
   this.name = name;
-  this.table = document.createElement('table');
 
+  var t = document.createElement('table');
+  var tb = document.createElement('tbody');
+  t.appendChild(tb);
+
+  this.table = t;
+  this.table.tbody = tb;
 }
 
 Table.prototype = {
@@ -10,7 +15,7 @@ Table.prototype = {
 
     if(tableData != undefined){
       for(var i = 0; i < tableData.length; i++){
-        this.table.appendChild(this.addRow(tableData[i]));
+        this.table.tbody.appendChild(this.addRow(tableData[i]));
       }
     }
 
@@ -88,7 +93,7 @@ Table.prototype = {
     //filter by position
     //this <- table
 
-    var table = this.table;
+    var table = this.table.tbody;
 
     var arr = [];
 
@@ -98,9 +103,11 @@ Table.prototype = {
       }
     }
 
-    for(var i = 0; i < arr.length; i++){
-      table.appendChild(this.addRow(arr[i]));
-    }
+    return arr
+
+    // for(var i = 0; i < arr.length; i++){
+    //   table.appendChild(this.addRow(arr[i]));
+    // }
 
   },
 

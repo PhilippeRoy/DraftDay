@@ -18,7 +18,3 @@ dashboard.addTable.call(backsSubModule, backTable);
 
 globalTable.addData(testData);
 backTable.readData(testData, 'B');
-
-//theBacksTable.prototype.readData(testData, 'B').bind(theBacksTable);
-//backTable.__proto__.bind(theBacksTable);
-//backTable.addListener()
