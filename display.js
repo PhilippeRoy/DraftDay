@@ -1,0 +1,7 @@
+function Display(){
+
+}
+
+Display.prototype = {
+  
+}

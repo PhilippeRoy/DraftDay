@@ -20,9 +20,9 @@ Dashboard.prototype = {
 
   },
 
-  addTable : function(tableObj){
+  addContent : function(content){
 
-     return this.appendChild(tableObj.table);
+     return this.appendChild(content.table);
 
   }
 }

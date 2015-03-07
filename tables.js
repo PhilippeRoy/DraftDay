@@ -13,6 +13,9 @@ Table.prototype = {
 
   addData : function(tableData){
 
+
+    this.table.tbody.innerHTML = '';
+
     if(tableData != undefined){
       for(var i = 0; i < tableData.length; i++){
         this.table.tbody.appendChild(this.addRow(tableData[i]));
@@ -89,10 +92,20 @@ Table.prototype = {
   },
 
 
-  addListener : function(table){
-    table.addEventListener('click', function(e){
+  addListener : function(){
+    this.table.addEventListener('click', function(e){
       //this tr all td disable
       console.log(e.target.innerHTML);
+
+      if(e.target.innerHTML === 'myTeam' ){
+        //add to team list
+      }
+
+      if(e.target.innerHTML === 'disable'){
+        //disable row
+        //remove from viewing diable table array
+      }
+
     })
    //Just as listener to table
 
