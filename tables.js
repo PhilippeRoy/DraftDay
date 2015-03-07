@@ -23,23 +23,38 @@ Table.prototype = {
 
   addRow : function (playerObj){
 
+    // create elements
     var tr = document.createElement('tr');
     var myTeam = document.createElement('button');
     var disable = document.createElement('button');
 
+    // create buttons
     myTeam.appendChild(document.createTextNode('myTeam'));
     disable.appendChild(document.createTextNode('disable'));
 
     for (var val in playerObj){
 
       var td = document.createElement('td');
-      var textNode = document.createTextNode(playerObj[val]);
-      td.appendChild(textNode);
-      td.appendChild(myTeam);
-      td.appendChild(disable);
-      tr.appendChild(td);
-      //add the two together and return
+
+      if(val === 'playerId'){
+        tr.setAttribute('data-' + val , playerObj[val]);
+      }else{
+        var textNode = document.createTextNode(playerObj[val]);
+        td.appendChild(textNode);
+        tr.appendChild(td);
+      }
     }
+
+    //Add button
+    var td = document.createElement('td');
+
+    td.appendChild(myTeam);
+    tr.appendChild(td);
+
+    var td = document.createElement('td');
+
+    td.appendChild(disable);
+    tr.appendChild(td);
 
     return tr;
 
@@ -50,64 +65,26 @@ Table.prototype = {
   },
 
   update:function(newData, currentData){
-    //find player by name/id
-    //update order
-    //update state
 
-    // for (var i = 0; i < newData.length; i++){
-    //   if(newData[i] === currentData[i]){
-    //
-    //   }
-    //   if(newData[i] !== currentData[i]){
-    //     //find equvalent
-    //
-    //     //else create
-    //   }
-    // }
   },
 
-  // readData:function(module, data, filter){
-  //   //read data from global
-  //   //filter by position
-  //   //this <- table
-  //
-  //   var table = module.getElementsByTagName('table')[0];
-  //
-  //   var arr = [];
-  //
-  //   for (var i = 0; i < data.length; i++){
-  //     if(data[i]['position'] === filter){
-  //       arr.push(data[i]);
-  //     }
-  //   }
-  //
-  //   for(var i = 0; i < arr.length; i++){
-  //     table.appendChild(this.addRow(arr[i]));
-  //   }
-  //
-  // },
 
+  readSelf:function(attr){
 
-  readData:function(data, filter){
-    //read data from global
-    //filter by position
-    //this <- table
-
-    var table = this.table.tbody;
-
+    var tableContent = this.table.tbody.children;
     var arr = [];
 
-    for (var i = 0; i < data.length; i++){
-      if(data[i]['position'] === filter){
-        arr.push(data[i]);
+    //loop throught the table rows, find data- attribute, get value, return arr of values
+    for (var i = 0; i < tableContent.length; i++){
+
+      for (var j = 0; j < tableContent[i].attributes.length; j++){
+        if(tableContent[i].attributes[j].name === ('data-'+attr)){
+          arr.push(tableContent[i].attributes[j].value)
+        }
       }
     }
 
-    return arr
-
-    // for(var i = 0; i < arr.length; i++){
-    //   table.appendChild(this.addRow(arr[i]));
-    // }
+    return arr;
 
   },
 

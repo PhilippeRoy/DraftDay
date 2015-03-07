@@ -1,3 +1,4 @@
+var data = new Data(testData);
 
 var dashboard = new Dashboard('master');
 //Create Dashboard
@@ -17,4 +18,11 @@ dashboard.addTable.call(globalSubModule, globalTable);
 dashboard.addTable.call(backsSubModule, backTable);
 
 globalTable.addData(testData);
-backTable.readData(testData, 'B');
+
+backTable.addData(filterData(testData, 'B'));
+
+globalTable.readSelf('playerid');
+
+
+//data.matchData(globalTable.readSelf('playerid'), data.originalList);
+//console.log(data);

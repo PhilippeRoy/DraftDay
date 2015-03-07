@@ -1,0 +1,12 @@
+{
+  "name": "DraftDay",
+  "version": "1.0.0",
+  "description": "Draft Pick Organizer",
+  "main": "dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server DraftDay/ -o "
+  },
+  "author": "Philippe Roy",
+  "license": "MIT"
+}
