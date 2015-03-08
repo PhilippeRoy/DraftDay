@@ -95,14 +95,22 @@ Table.prototype = {
   addListener : function(){
     this.table.addEventListener('click', function(e){
       //this tr all td disable
-      console.log(e.target.innerHTML);
+      var el = e.target;
+      var parentRow = el.parentNode.parentNode;
+//ToDO make this a recurisve loop to find parent
+      //console.log(el.parentNode.parentNode);
 
       if(e.target.innerHTML === 'myTeam' ){
         //add to team list
+        // create obj and add to my team list
+        var whatToAdd = data.addToMyTeam(data.reconstructObj(parentRow));
+        myTeamTable.addData(whatToAdd);
+        e.target.setAttribute('disabled', 'disabled');
+        //myTeam refreshh
       }
 
       if(e.target.innerHTML === 'disable'){
-        //disable row
+        parentRow.style.color = "#AAAAAA";
         //remove from viewing diable table array
       }
 

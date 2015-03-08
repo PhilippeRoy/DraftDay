@@ -22,7 +22,7 @@ Dashboard.prototype = {
 
   addContent : function(content){
 
-     return this.appendChild(content.table);
+     return this.appendChild(content);
 
   }
 }

@@ -14,6 +14,7 @@ function Data(data) {
   this.originalList = data;
   this.currentList = data;
   this.previousList = data;
+  this.myTeam = [];
 }
 
 Data.prototype = {
@@ -63,6 +64,12 @@ Data.prototype = {
     obj.position = itemData[2].innerText;
 
     return obj;
+  },
+
+  addToMyTeam : function(obj){
+    this.myTeam.push(obj);
+
+    return this.myTeam;
   }
 }
 
