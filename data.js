@@ -15,7 +15,8 @@ function Data(data) {
   this.currentList = data;
   this.previousList = data;
   this.myTeam = [];
-  this.whoToShow = data;
+
+  this.whoToShow = this.currentList.map(function(obj){return obj}); //this is a referenece i need a copy
 }
 
 Data.prototype = {
@@ -40,18 +41,17 @@ Data.prototype = {
     return arr;
   },
 
-  quickFind: function(item){
+  quickFind: function(item, index){
 
-    var index = undefined;
+    this.previousList = this.currentList.map(function(obj){return obj}); //need to return new array
 
     for(var i = 0; i < this.currentList.length; i++){
       if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
-        return i;
+        this.currentList.splice(i, 1);
       }
     }
 
-
-
+    this.currentList.splice(index , 0, this.reconstructObj(item));
   },
 
   removeObj: function(item){
@@ -61,7 +61,6 @@ Data.prototype = {
         this.whoToShow.splice(i, 1);
       }
     }
-
   },
 
   reconstructObj : function(item){
@@ -97,17 +96,41 @@ Data.prototype = {
     return index;
   },
 
-  restorePlayer: function(item, index){
+  restorePlayer: function(){
 
-    this.previousList = this.currentList.map(function(obj){return obj}); //need to return new array
 
-    for(var i = 0; i < this.currentList.length; i++){
-      if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
-        this.currentList.splice(i, 1);
+    //loop trough global table find elements that are not disbale
+    //make a list and set that to who to show
+
+
+    var tableContent = this.table.tbody.children;
+    var arr = [];
+
+    //loop throught the table rows, find data- attribute, get value, return arr of values
+    for (var i = 0; i < tableContent.length; i++){
+
+      for (var j = 0; j < tableContent[i].attributes.length; j++){
+        if(tableContent[i].attributes[j].name === ('data-'+attr)){
+          arr.push(tableContent[i].attributes[j].value)
+        }
       }
     }
 
-    this.currentList.splice(index , 0, this.reconstructObj(item));
+    return arr;
+
+    //this.whoToShow = ;
+
+  },
+
+  findIndex: function(item){
+
+
+    for(var i = 0; i < this.currentList.length; i++){
+      if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
+        return i;
+      }
+    }
+
   },
 }
 

@@ -24,11 +24,15 @@ rounds.addEventListener('click', function(e){
 
 globalTable.table.addEventListener('click', function(e){
 
+  console.log(data.whoToShow);
+  console.log(e.target.innerHTML)
+
   var el = e.target;
   var parentRow = el.parentNode.parentNode;
   var buttonList = parentRow.getElementsByTagName('button');
 
 //ToDO make this a recurisve loop to find parent
+
 
   if(e.target.innerHTML === 'myTeam' ){
     //add to team list
@@ -57,10 +61,14 @@ globalTable.table.addEventListener('click', function(e){
 
   }
 
+
+
   if(e.target.innerHTML === 'disable'){
     parentRow.style.color = "#AAAAAA";
 
-    for (var i = 0; i < buttonList.length; i++){
+    //not going through though becuase I need the other button active;
+    parentRow.setAttribute('data-disabled', 'disabled');
+    for (var i = 0; i < 1; i++){
       buttonList[i].setAttribute('disabled', 'disabled');
     }
     //remove from viewing diable table array
@@ -68,14 +76,38 @@ globalTable.table.addEventListener('click', function(e){
     //find el in array and remove
     data.removeObj(parentRow);
 
-    //console.log(rounds);
+    var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
+    display.whatToDisplay(spanNumber);
+
+    e.target.innerHTML = 'restore';
+  }
+
+
+  else if(e.target.innerHTML === 'restore'){
+    parentRow.style.color = "#000";
+
+    //not going through though becuase I need the other button active;
+
+    for (var i = 0; i < 1; i++){
+      buttonList[i].removeAttribute('disabled');
+    }
+
+    //remove from viewing diable table array
+    var elToRemove = data.reconstructObj(parentRow);
+    //find el in array and remove
+    data.removeObj(parentRow);
 
     var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
     display.whatToDisplay(spanNumber);
 
+    e.target.innerHTML = 'disable';
+
+
   }
 
-})
+
+
+});
 
 
 
@@ -94,7 +126,8 @@ myTeamTable.table.addEventListener('click', function(e){
   myTeamTable.removeRow(data.removeFromMyTeam(parentRow));
 
   //find in global table and restore
-  var index = data.quickFind(parentRow);
+  var index = data.findIndex(parentRow);
+//  console.log(index);
   var foundEl = globalTable.table.rows[index];
 
   foundEl.style.color = "#000";
@@ -104,7 +137,8 @@ myTeamTable.table.addEventListener('click', function(e){
     buttonList[i].removeAttribute('disabled');
   }
 
+//need to add back too who to show
 
   }
 
-})
+});
