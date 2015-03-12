@@ -1,11 +1,16 @@
 TO DO
 ======
 
-Make buttons trigger events
-
-Bind update to a function be run
-
+Pre order list by points
 
 make display module to display who to pick next
 
-figure out data models
+
+add submoldes table to a registar
+
+loop through registered modules and update tables
+
+remove button for my team
+
+
+make filter for position with counter fro my team

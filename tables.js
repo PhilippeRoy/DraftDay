@@ -1,8 +1,11 @@
-function Table(name ) {
+function Table(name) {
   this.name = name;
 
   var t = document.createElement('table');
+  var c = document.createElement('caption');
   var tb = document.createElement('tbody');
+  t.appendChild(c);
+  c.innerHTML = this.name;
   t.appendChild(tb);
 
   this.table = t;
@@ -11,29 +14,24 @@ function Table(name ) {
 
 Table.prototype = {
 
-  addData : function(tableData){
+  addData : function(tableData, buttons){
 
 
     this.table.tbody.innerHTML = '';
 
     if(tableData != undefined){
       for(var i = 0; i < tableData.length; i++){
-        this.table.tbody.appendChild(this.addRow(tableData[i]));
+        this.table.tbody.appendChild(this.addRow(tableData[i], buttons));
       }
     }
 
   },
 
-  addRow : function (playerObj){
+  addRow : function (playerObj, addbuttons){
 
     // create elements
     var tr = document.createElement('tr');
-    var myTeam = document.createElement('button');
-    var disable = document.createElement('button');
 
-    // create buttons
-    myTeam.appendChild(document.createTextNode('myTeam'));
-    disable.appendChild(document.createTextNode('disable'));
 
     for (var val in playerObj){
 
@@ -48,16 +46,10 @@ Table.prototype = {
       }
     }
 
-    //Add button
-    var td = document.createElement('td');
-
-    td.appendChild(myTeam);
-    tr.appendChild(td);
-
-    var td = document.createElement('td');
-
-    td.appendChild(disable);
-    tr.appendChild(td);
+//    console.log(addbuttons);
+    if(addbuttons !== undefined){
+      addbuttons(tr);
+    }
 
     return tr;
 
@@ -106,6 +98,8 @@ Table.prototype = {
         var whatToAdd = data.addToMyTeam(data.reconstructObj(parentRow));
         myTeamTable.addData(whatToAdd);
         e.target.setAttribute('disabled', 'disabled');
+        parentRow.style.color = "#00FF00";
+
         //myTeam refreshh
       }
 

@@ -5,7 +5,7 @@ var testData = [
   {playerId: 3, name:'Nick', points: 107, position: 'C'},
   {playerId: 4, name: 'Alfred', points:340, position: 'F'},
   {playerId: 5, name:'Ashton', points: 560, position: 'B'},
-  {playerId: 6, name:'Stan', points: 189, position: 'C'}
+  {playerId: 6, name:'Stan', points: 189, position: 'R'}
   ];
 
 
@@ -15,6 +15,7 @@ function Data(data) {
   this.currentList = data;
   this.previousList = data;
   this.myTeam = [];
+  this.whoToShow = data;
 }
 
 Data.prototype = {
@@ -52,6 +53,16 @@ Data.prototype = {
     this.currentList.splice(index , 0, this.reconstructObj(item));
   },
 
+  removeObj: function(item){
+
+    for(var i = 0; i < this.whoToShow.length; i++){
+      if(item.getAttribute("data-playerid") == this.whoToShow[i].playerId){
+        this.whoToShow.splice(i, 1);
+      }
+    }
+
+  },
+
   reconstructObj : function(item){
     var obj = {};
 
@@ -85,3 +96,16 @@ function filterData(data, filter){
 
   return arr;
 }
+
+// function filterByPoints(data, filter){
+//
+//   var arr = [];
+//
+//   for (var i = 0; i < data.length; i++){
+//     if(data[i]['position'] === filter){
+//       arr.push(data[i]);
+//     }
+//   }
+//
+//   return arr;
+// }

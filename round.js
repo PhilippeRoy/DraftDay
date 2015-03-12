@@ -14,13 +14,13 @@ function Round(){
   previous.appendChild(document.createTextNode('prev'));
   next.appendChild(document.createTextNode('next'));
 
-  span.appendChild(spanContent);
+  this.span = span.appendChild(spanContent);
 
   this.round.appendChild(span);
   this.round.appendChild(previous);
   this.round.appendChild(next);
 
-  this.round.addEventListener('click', function(e){
+   this.round.addEventListener('click', function(e){
 
     if(e.target.innerHTML === 'prev' ){
       counter--;
