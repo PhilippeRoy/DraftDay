@@ -40,17 +40,18 @@ Data.prototype = {
     return arr;
   },
 
-  quickFind: function(item, index){
+  quickFind: function(item){
 
-    this.previousList = this.currentList.map(function(obj){return obj}); //need to return new array
+    var index = undefined;
 
     for(var i = 0; i < this.currentList.length; i++){
       if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
-        this.currentList.splice(i, 1);
+        return i;
       }
     }
 
-    this.currentList.splice(index , 0, this.reconstructObj(item));
+
+
   },
 
   removeObj: function(item){
@@ -81,7 +82,33 @@ Data.prototype = {
     this.myTeam.push(obj);
 
     return this.myTeam;
-  }
+  },
+
+  removeFromMyTeam : function(item){
+    var index = undefined;
+
+    for(var i = 0; i < this.myTeam.length; i++){
+      if(item.getAttribute("data-playerid") == this.myTeam[i].playerId){
+        this.myTeam.splice(i, 1);
+        index = i;
+      }
+    }
+
+    return index;
+  },
+
+  restorePlayer: function(item, index){
+
+    this.previousList = this.currentList.map(function(obj){return obj}); //need to return new array
+
+    for(var i = 0; i < this.currentList.length; i++){
+      if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
+        this.currentList.splice(i, 1);
+      }
+    }
+
+    this.currentList.splice(index , 0, this.reconstructObj(item));
+  },
 }
 
 function filterData(data, filter){
@@ -96,16 +123,3 @@ function filterData(data, filter){
 
   return arr;
 }
-
-// function filterByPoints(data, filter){
-//
-//   var arr = [];
-//
-//   for (var i = 0; i < data.length; i++){
-//     if(data[i]['position'] === filter){
-//       arr.push(data[i]);
-//     }
-//   }
-//
-//   return arr;
-// }

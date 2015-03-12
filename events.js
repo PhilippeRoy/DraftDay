@@ -73,6 +73,37 @@ globalTable.table.addEventListener('click', function(e){
     var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
     display.whatToDisplay(spanNumber);
 
+  }
+
+})
+
+
+
+myTeamTable.table.addEventListener('click', function(e){
+
+  var el = e.target;
+  var parentRow = el.parentNode.parentNode;
+
+//ToDO make this a recurisve loop to find parent
+
+  if(e.target.innerHTML === 'remove' ){
+
+  //remove from my team
+  var elToRemove = data.reconstructObj(parentRow);
+
+  myTeamTable.removeRow(data.removeFromMyTeam(parentRow));
+
+  //find in global table and restore
+  var index = data.quickFind(parentRow);
+  var foundEl = globalTable.table.rows[index];
+
+  foundEl.style.color = "#000";
+
+  var buttonList = foundEl.getElementsByTagName('button');
+  for (var i = 0; i < buttonList.length; i++){
+    buttonList[i].removeAttribute('disabled');
+  }
+
 
   }
 

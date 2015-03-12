@@ -55,7 +55,7 @@ Table.prototype = {
 
   },
   removeRow : function(index){
-    console.log('removed');
+    this.table.deleteRow(index);
 
   },
 
