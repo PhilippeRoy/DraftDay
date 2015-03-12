@@ -1,0 +1,2 @@
+# DraftDay
+AFL Draft organizer
