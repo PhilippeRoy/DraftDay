@@ -117,4 +117,36 @@ Table.prototype = {
 
   },
 
+
+  applyFilter : function(filter){
+
+
+    var tableContent = this.table.tbody.children;
+    var arr = [];
+
+    //loop throught the table rows, find data- attribute, get value, return arr of values
+    for (var i = 0; i < tableContent.length; i++){
+
+      for (var j = 0; j < tableContent[i].cells.length; j++){
+        if(tableContent[i].cells[j].innerHTML === filter){
+
+          tableContent[i].setAttribute('data-disabled', 'disabled');
+          tableContent[i].style.color = "#AAAAAA";
+          var buttonList = tableContent[i].getElementsByTagName('button');
+          buttonList[0].setAttribute('disabled', 'disabled');
+          buttonList[1].innerHTML = 'restore';
+        }
+      }
+    }
+//make this work propperly
+    var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
+    display.whatToDisplay(spanNumber, data.whoToShow);
+  }
+
+
+
+
+
+
+
 }

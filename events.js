@@ -24,8 +24,6 @@ rounds.addEventListener('click', function(e){
 
 globalTable.table.addEventListener('click', function(e){
 
-  //console.log(data.whoToShow);
-
   var el = e.target;
   var parentRow = el.parentNode.parentNode;
   var buttonList = parentRow.getElementsByTagName('button');
@@ -56,6 +54,8 @@ globalTable.table.addEventListener('click', function(e){
     }
     //e.target.setAttribute('disabled', 'disabled');
     parentRow.style.color = "#00FF00";
+
+    counter.count(data.positionCounter());
 
 
   }
@@ -92,20 +92,15 @@ globalTable.table.addEventListener('click', function(e){
     }
     parentRow.removeAttribute('data-disabled');
 
-
     data.restorePlayer('disabled', globalTable);
-     console.log(data.whoToShow);
-
 
     var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
     display.whatToDisplay(spanNumber, data.whoToShow);
 
     e.target.innerHTML = 'disable';
 
-
   }
 
-//  console.log(data.whoToShow);
 
 
 });
@@ -138,8 +133,27 @@ myTeamTable.table.addEventListener('click', function(e){
     buttonList[i].removeAttribute('disabled');
   }
 
+  counter.count(data.positionCounter());
+
+
 //need to add back too who to show
 
   }
+
+});
+
+
+filter.display.addEventListener('click', function(e){
+
+  var el = e.target;
+  //e.target.value
+  if(e.target.checked){
+  //  e.target.value
+
+  globalTable.applyFilter(e.target.value);
+
+  //find all in global list and apply disable
+  }
+
 
 });

@@ -5,6 +5,8 @@ var dashboard = new Dashboard('master');
 
 //create submodules
 var roundSubModule = dashboard.createSubModule('rounds');
+var counterSubModule = dashboard.createSubModule('counter');
+var filterSubModule = dashboard.createSubModule('filer');
 var displaySubModule = dashboard.createSubModule('display');
 
 var globalSubModule = dashboard.createSubModule('global');
@@ -20,6 +22,8 @@ var rounds = new Round();
 
 //Create Display
 var display = new Display(data.whoToShow);
+var counter = new Display();
+var filter = new Display();
 
 //create Tables
 var globalTable = new Table('global');
@@ -32,7 +36,10 @@ var rucsTable = new Table('rucs');
 
 //Add content to sub modules
 dashboard.addContent.call(roundSubModule, rounds);
+dashboard.addContent.call(counterSubModule, counter.display);
+dashboard.addContent.call(filterSubModule, filter.display);
 dashboard.addContent.call(displaySubModule, display.display);
+
 
 dashboard.addContent.call(globalSubModule, globalTable.table);
 dashboard.addContent.call(myTeamSubModule, myTeamTable.table);
@@ -77,3 +84,5 @@ globalTable.readSelf('playerid');
 
 
 display.whatToDisplay(0, data.whoToShow);
+counter.count(data.positionCounter());
+filter.filter();

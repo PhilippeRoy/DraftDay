@@ -96,6 +96,33 @@ Data.prototype = {
     return index;
   },
 
+
+  positionCounter: function(){
+
+    var count = {};
+    count.f = 0;
+    count.c = 0;
+    count.b = 0;
+    count.r = 0;
+
+    for(var i = 0; i < this.myTeam.length; i++){
+      if(this.myTeam[i].position === 'F'){
+        count.f++;
+      } else if(this.myTeam[i].position === 'B'){
+        count.b++;
+      }else if(this.myTeam[i].position === 'C'){
+        count.c++;
+      }else if(this.myTeam[i].position === 'R'){
+        count.r++;
+      }
+    }
+
+    console.log(count);
+
+    return count;
+
+  },
+
   restorePlayer: function(attr, t){
 
 

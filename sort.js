@@ -10,7 +10,7 @@ $(function() {
        rucsTable.addData(filterData(data.currentList, 'R'));
 
        var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
-       display.whatToDisplay(spanNumber);
+       display.whatToDisplay(spanNumber, data.whoToShow);
      }
    });
    $( ".global tbody" ).disableSelection();
