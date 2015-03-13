@@ -96,14 +96,13 @@ Data.prototype = {
     return index;
   },
 
-  restorePlayer: function(){
+  restorePlayer: function(attr, t){
 
 
     //loop trough global table find elements that are not disbale
     //make a list and set that to who to show
 
-
-    var tableContent = this.table.tbody.children;
+    var tableContent = t.table.tbody.children;
     var arr = [];
 
     //loop throught the table rows, find data- attribute, get value, return arr of values
@@ -111,19 +110,35 @@ Data.prototype = {
 
       for (var j = 0; j < tableContent[i].attributes.length; j++){
         if(tableContent[i].attributes[j].name === ('data-'+attr)){
-          arr.push(tableContent[i].attributes[j].value)
+
+          arr.push(this.reconstructObj(tableContent[i]))
         }
       }
     }
 
-    return arr;
+    //arr is exclude list
 
-    //this.whoToShow = ;
+
+    var tmpArr = this.currentList.map(function(obj){return obj}); //this is a referenece i need a copy
+
+
+    for(var i = 0; i < arr.length; i++){
+
+
+      for(var j = 0; j < tmpArr.length; j++ ){
+        if(tmpArr[j].playerId == arr[i].playerId){
+          tmpArr.splice(j, 1);
+        }
+      }
+    }
+
+
+
+    this.whoToShow = tmpArr;
 
   },
 
   findIndex: function(item){
-
 
     for(var i = 0; i < this.currentList.length; i++){
       if(item.getAttribute("data-playerid") == this.currentList[i].playerId){
@@ -145,4 +160,14 @@ function filterData(data, filter){
   }
 
   return arr;
+}
+
+function exculdePlayer(el, excludeList){
+
+
+  for(var i = 0; i < this.currentList.length; i++){
+    if(el.playerId === this.currentList[i].playerId){
+      this.currentList.splice(i, 1);
+    }
+  }
 }

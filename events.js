@@ -3,7 +3,7 @@ rounds.addEventListener('click', function(e){
   if(e.target.innerHTML === 'prev' ){
 
     var spanNumber = this.getElementsByTagName('span')[0].innerHTML;
-    display.whatToDisplay(spanNumber);
+    display.whatToDisplay(spanNumber, data.whoToShow);
 
     //console.log(data.whoToShow)
 
@@ -12,7 +12,7 @@ rounds.addEventListener('click', function(e){
   if(e.target.innerHTML === 'next'){
 
     var spanNumber = this.getElementsByTagName('span')[0].innerHTML;
-    display.whatToDisplay(spanNumber);
+    display.whatToDisplay(spanNumber, data.whoToShow);
 
     //console.log(data.whoToShow)
 
@@ -24,8 +24,7 @@ rounds.addEventListener('click', function(e){
 
 globalTable.table.addEventListener('click', function(e){
 
-  console.log(data.whoToShow);
-  console.log(e.target.innerHTML)
+  //console.log(data.whoToShow);
 
   var el = e.target;
   var parentRow = el.parentNode.parentNode;
@@ -77,7 +76,7 @@ globalTable.table.addEventListener('click', function(e){
     data.removeObj(parentRow);
 
     var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
-    display.whatToDisplay(spanNumber);
+    display.whatToDisplay(spanNumber, data.whoToShow);
 
     e.target.innerHTML = 'restore';
   }
@@ -91,20 +90,22 @@ globalTable.table.addEventListener('click', function(e){
     for (var i = 0; i < 1; i++){
       buttonList[i].removeAttribute('disabled');
     }
+    parentRow.removeAttribute('data-disabled');
 
-    //remove from viewing diable table array
-    var elToRemove = data.reconstructObj(parentRow);
-    //find el in array and remove
-    data.removeObj(parentRow);
+
+    data.restorePlayer('disabled', globalTable);
+     console.log(data.whoToShow);
+
 
     var spanNumber = rounds.getElementsByTagName('span')[0].innerHTML;
-    display.whatToDisplay(spanNumber);
+    display.whatToDisplay(spanNumber, data.whoToShow);
 
     e.target.innerHTML = 'disable';
 
 
   }
 
+//  console.log(data.whoToShow);
 
 
 });

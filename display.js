@@ -9,13 +9,14 @@ function Display(arr){
 
 Display.prototype = {
 
-  whatToDisplay : function(pos){
+  whatToDisplay : function(pos, arr){
+    console.log(arr);
 
-    this.display.innerHTML = this.arr[pos]['name'];
+    this.display.innerHTML = arr[pos]['name'];
 
   },
 
   remove: function(){
-    
+
   }
 }

@@ -76,4 +76,4 @@ rucsTable.addData(filterData(testData, 'R'));
 globalTable.readSelf('playerid');
 
 
-display.whatToDisplay(0);
+display.whatToDisplay(0, data.whoToShow);
