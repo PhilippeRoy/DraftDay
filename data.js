@@ -1,11 +1,11 @@
 //Data
 var testData = [
-  {playerId: 1, name: 'Philippe', points:400, position: 'F'},
-  {playerId: 2, name:'Jobe', points: 50, position: 'B'},
-  {playerId: 3, name:'Nick', points: 107, position: 'C'},
-  {playerId: 4, name: 'Alfred', points:340, position: 'F'},
-  {playerId: 5, name:'Ashton', points: 560, position: 'B'},
-  {playerId: 6, name:'Stan', points: 189, position: 'R'}
+  {playerId: 1, name: 'Philippe', points:400, team: 'st Kidla', position: 'F'},
+  {playerId: 2, name:'Jobe', points: 50, team: 'sydney', position: 'B'},
+  {playerId: 3, name:'Nick', points: 107, team: 'hathowrn', position: 'C'},
+  {playerId: 4, name: 'Alfred', points:340, team: 'melbourne',position: 'F'},
+  {playerId: 5, name:'Ashton', points: 560, team: 'geelong',  position: 'B'},
+  {playerId: 6, name:'Stan', points: 189, team: 'adelaide', position: 'R'}
   ];
 
 

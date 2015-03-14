@@ -57,6 +57,16 @@ globalTable.table.addEventListener('click', function(e){
 
     counter.count(data.positionCounter());
 
+    backTable.addData(filterData(data.whoToShow, 'B'));
+    centerTable.addData(filterData(data.whoToShow, 'C'));
+    forwardsTable.addData(filterData(data.whoToShow, 'F'));
+    rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+    backMyTeamTable.addData(filterData(data.myTeam, 'B'));
+    centerMyTeamTable.addData(filterData(data.myTeam, 'C'));
+    forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
+    rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
+
 
   }
 
@@ -79,6 +89,11 @@ globalTable.table.addEventListener('click', function(e){
     display.whatToDisplay(spanNumber, data.whoToShow);
 
     e.target.innerHTML = 'restore';
+
+    backTable.addData(filterData(data.whoToShow, 'B'));
+    centerTable.addData(filterData(data.whoToShow, 'C'));
+    forwardsTable.addData(filterData(data.whoToShow, 'F'));
+    rucsTable.addData(filterData(data.whoToShow, 'R'));
   }
 
 
@@ -98,6 +113,11 @@ globalTable.table.addEventListener('click', function(e){
     display.whatToDisplay(spanNumber, data.whoToShow);
 
     e.target.innerHTML = 'disable';
+
+    backTable.addData(filterData(data.whoToShow, 'B'));
+    centerTable.addData(filterData(data.whoToShow, 'C'));
+    forwardsTable.addData(filterData(data.whoToShow, 'F'));
+    rucsTable.addData(filterData(data.whoToShow, 'R'));
 
   }
 
@@ -135,6 +155,16 @@ myTeamTable.table.addEventListener('click', function(e){
 
   counter.count(data.positionCounter());
 
+  backTable.addData(filterData(data.whoToShow, 'B'));
+  centerTable.addData(filterData(data.whoToShow, 'C'));
+  forwardsTable.addData(filterData(data.whoToShow, 'F'));
+  rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+  backMyTeamTable.addData(filterData(data.myTeam, 'B'));
+  centerMyTeamTable.addData(filterData(data.myTeam, 'C'));
+  forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
+  rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
+
 
 //need to add back too who to show
 
@@ -155,6 +185,11 @@ filter.display.addEventListener('click', function(e){
    } else if(!e.target.checked){
      globalTable.removeFilter(e.target.value)
    }
+
+   backTable.addData(filterData(data.whoToShow, 'B'));
+   centerTable.addData(filterData(data.whoToShow, 'C'));
+   forwardsTable.addData(filterData(data.whoToShow, 'F'));
+   rucsTable.addData(filterData(data.whoToShow, 'R'));
 
 
 });
