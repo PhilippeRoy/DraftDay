@@ -117,8 +117,6 @@ Data.prototype = {
       }
     }
 
-    console.log(count);
-
     return count;
 
   },

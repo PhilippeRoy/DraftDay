@@ -146,14 +146,15 @@ myTeamTable.table.addEventListener('click', function(e){
 filter.display.addEventListener('click', function(e){
 
   var el = e.target;
-  //e.target.value
-  if(e.target.checked){
-  //  e.target.value
 
-  globalTable.applyFilter(e.target.value);
+  if(e.target.checked){
+
+    globalTable.applyFilter(e.target.value);
 
   //find all in global list and apply disable
-  }
+   } else if(!e.target.checked){
+     globalTable.removeFilter(e.target.value)
+   }
 
 
 });
