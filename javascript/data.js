@@ -52,6 +52,8 @@ Data.prototype = {
     }
 
     this.currentList.splice(index , 0, this.reconstructObj(item));
+
+    return this.currentList;
   },
 
   removeObj: function(item){
@@ -72,7 +74,8 @@ Data.prototype = {
     obj.playerId = item.getAttribute("data-playerid");
     obj.name = itemData[0].innerText;
     obj.points = itemData[1].innerText;
-    obj.position = itemData[2].innerText;
+    obj.team = itemData[2].innerText;
+    obj.position = itemData[3].innerText;
 
     return obj;
   },

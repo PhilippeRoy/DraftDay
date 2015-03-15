@@ -1,5 +1,6 @@
 rounds.addEventListener('click', function(e){
 
+
   if(e.target.innerHTML === 'prev' ){
 
     var spanNumber = this.getElementsByTagName('span')[0].innerHTML;
@@ -10,6 +11,7 @@ rounds.addEventListener('click', function(e){
   }
 
   if(e.target.innerHTML === 'next'){
+
 
     var spanNumber = this.getElementsByTagName('span')[0].innerHTML;
     display.whatToDisplay(spanNumber, data.whoToShow);

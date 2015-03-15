@@ -11,6 +11,8 @@ Display.prototype = {
 
   whatToDisplay : function(pos, arr){
 
+  // console.log(arr);
+
     this.display.innerHTML = arr[pos]['name'];
 
   },

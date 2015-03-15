@@ -5,22 +5,24 @@ var dashboard = new Dashboard('master');
 
 //create submodules
 var roundSubModule = dashboard.createSubModule('rounds');
-var counterSubModule = dashboard.createSubModule('counter');
-var filterSubModule = dashboard.createSubModule('filer');
 var displaySubModule = dashboard.createSubModule('display');
 
+var counterSubModule = dashboard.createSubModule('counter');
+var filterSubModule = dashboard.createSubModule('filter');
+
 var globalSubModule = dashboard.createSubModule('global');
-var myTeamSubModule = dashboard.createSubModule('myTeam');
 
 var backsSubModule = dashboard.createSubModule('backs');
 var centerSubModule = dashboard.createSubModule('centers');
 var forwardsSubModule = dashboard.createSubModule('forwards');
 var rucsSubModule = dashboard.createSubModule('rucs');
 
-var backsMyTeamSubModule = dashboard.createSubModule('backs');
-var centerMyTeamSubModule = dashboard.createSubModule('centers');
-var forwardsMyTeamSubModule = dashboard.createSubModule('forwards');
-var rucsMyTeamSubModule = dashboard.createSubModule('rucs');
+var myTeamSubModule = dashboard.createSubModule('myTeam');
+
+var backsMyTeamSubModule = dashboard.createSubModule('backsMyTeam');
+var centerMyTeamSubModule = dashboard.createSubModule('centersMyTeam');
+var forwardsMyTeamSubModule = dashboard.createSubModule('forwardsMyTeam');
+var rucsMyTeamSubModule = dashboard.createSubModule('rucsMyTeam');
 
 //Create Round Counter
 var rounds = new Round();

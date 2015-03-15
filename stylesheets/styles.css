@@ -1,0 +1,61 @@
+.row {
+  margin-bottom: 20px; }
+
+.row1 {
+  margin-top: 20px; }
+
+.module {
+  background: #F5F5F5;
+  padding: 15px;
+  height: 300px;
+  overflow: scroll; }
+
+.display {
+  float: none;
+  margin: 15px auto;
+  border: 1px solid black;
+  width: 300px;
+  height: 50px; }
+
+.global {
+  float: none; }
+
+.global.module table, .myTeam.module table {
+  margin: auto; }
+
+table {
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase; }
+
+table td {
+  text-align: center;
+  text-transform: none;
+  width: 75px;
+  font-size: 14px; }
+
+.counter {
+  float: right;
+  height: auto; }
+
+.filter {
+  float: right;
+  height: auto; }
+
+.rounds {
+  float: left;
+  text-align: center;
+  height: auto; }
+
+.display {
+  text-align: center;
+  height: auto;
+  font-size: 16px; }
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: center; }
+
+/*# sourceMappingURL=styles.css.map */
