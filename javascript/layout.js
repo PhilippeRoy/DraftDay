@@ -14,34 +14,47 @@ $('.display').appendTo('.row1');
 $('.counter').appendTo('.row1');
 $('.filter').appendTo('.row1');
 
-$('.rounds').wrap( "<div class='col-md-4'></div>" );
-$('.display').wrap( "<div class='col-md-4'></div>" );
+$('.rounds').wrap( "<div class='col-sm-4 clearfix'></div>" );
+$('.display').wrap( "<div class='col-sm-4 '></div>" );
 
-$('.counter').wrap( "<div class='col-md-4 filterContainer'></div>" );
+$('.counter').wrap( "<div class='col-sm-4 filterContainer clearfix'></div>" );
 $('.filter').appendTo('.filterContainer');
 
 $('.global').appendTo('.row2');
-$('.global').wrap( "<div class='col-md-12'></div>" );
+$('.global').wrap( "<div class='col-sm-12'></div>" );
 
 $('.backs').appendTo('.row3');
 $('.centers').appendTo('.row3');
 $('.forwards').appendTo('.row3');
 $('.rucs').appendTo('.row3');
 
-$('.backs').wrap( "<div class='col-md-3'></div>" );
-$('.centers').wrap( "<div class='col-md-3'></div>" );
-$('.forwards').wrap( "<div class='col-md-3'></div>" );
-$('.rucs').wrap( "<div class='col-md-3'></div>" );
+$('.backs').wrap( "<div class='col-sm-3'></div>" );
+$('.centers').wrap( "<div class='col-sm-3'></div>" );
+$('.forwards').wrap( "<div class='col-sm-3'></div>" );
+$('.rucs').wrap( "<div class='col-sm-3'></div>" );
 
 $('.myTeam').appendTo('.row4');
-$('.myTeam').wrap( "<div class='col-md-12'></div>" );
+$('.myTeam').wrap( "<div class='col-sm-12'></div>" );
 
 $('.backsMyTeam').appendTo('.row5');
 $('.centersMyTeam').appendTo('.row5');
 $('.forwardsMyTeam').appendTo('.row5');
 $('.rucsMyTeam').appendTo('.row5');
 
-$('.backsMyTeam').wrap( "<div class='col-md-3'></div>" );
-$('.centersMyTeam').wrap( "<div class='col-md-3'></div>" );
-$('.forwardsMyTeam').wrap( "<div class='col-md-3'></div>" );
-$('.rucsMyTeam').wrap( "<div class='col-md-3'></div>" );
+$('.backsMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.centersMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.forwardsMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.rucsMyTeam').wrap( "<div class='col-sm-3'></div>" );
+
+$('table').addClass('table table-striped').wrap( "<div class='table-responsive'></div>" );
+
+(function newCaption(){
+  var captionList = $('.module').find('caption');
+  captionList.each(function(){
+    var t = $(this).text();
+    $(this).parents('.module').parent().prepend('<h4>'+t+'</h4>');
+    $(this).remove();
+  });
+})();
+
+$('button').addClass('btn btn-default');

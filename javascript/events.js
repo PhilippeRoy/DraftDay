@@ -55,7 +55,8 @@ globalTable.table.addEventListener('click', function(e){
       buttonList[i].setAttribute('disabled', 'disabled');
     }
     //e.target.setAttribute('disabled', 'disabled');
-    parentRow.style.color = "#00FF00";
+    //parentRow.style.color = "#00FF00";
+    parentRow.className = parentRow.className + ' ' + 'success';
 
     counter.count(data.positionCounter());
 
@@ -76,6 +77,8 @@ globalTable.table.addEventListener('click', function(e){
 
   if(e.target.innerHTML === 'disable'){
     parentRow.style.color = "#AAAAAA";
+    parentRow.className = parentRow.className + ' ' + 'danger';
+
 
     //not going through though becuase I need the other button active;
     parentRow.setAttribute('data-disabled', 'disabled');
@@ -101,6 +104,7 @@ globalTable.table.addEventListener('click', function(e){
 
   else if(e.target.innerHTML === 'restore'){
     parentRow.style.color = "#000";
+    parentRow.classList.remove('danger');
 
     //not going through though becuase I need the other button active;
 
@@ -149,7 +153,8 @@ myTeamTable.table.addEventListener('click', function(e){
   var foundEl = globalTable.table.rows[index];
 
   foundEl.style.color = "#000";
-
+  foundEl.classList.remove('success');
+  
   var buttonList = foundEl.getElementsByTagName('button');
   for (var i = 0; i < buttonList.length; i++){
     buttonList[i].removeAttribute('disabled');
