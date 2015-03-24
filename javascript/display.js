@@ -36,6 +36,9 @@ Display.prototype = {
     inner += '<input type="checkbox" name="Center" value="C">Center<br>';
     inner += '<input type="checkbox" name="Backs" value="B">Backs<br>';
     inner += '<input type="checkbox" name="Rucs" value="R">Rucs<br>';
+    inner += '<input type="checkbox" name="CenterForwards" value="C,F">Center-F<br>';
+    inner += '<input type="checkbox" name="BacksForwards" value="B,F">Backs-F<br>';
+    inner += '<input type="checkbox" name="RucsForwards" value="R,F">Rucs-F<br>';
 
 
     this.display.innerHTML = inner;

@@ -399,6 +399,9 @@ Data.prototype = {
     count.c = 0;
     count.b = 0;
     count.r = 0;
+    count.cf = 0;
+    count.bf = 0;
+    count.rf = 0;
 
     for(var i = 0; i < this.myTeam.length; i++){
       if(this.myTeam[i].position === 'F'){
@@ -409,6 +412,12 @@ Data.prototype = {
         count.c++;
       }else if(this.myTeam[i].position === 'R'){
         count.r++;
+      }else if(this.myTeam[i].position === 'B,F'){
+        count.bf++;
+      }else if(this.myTeam[i].position === 'C,F'){
+        count.cf++;
+      }else if(this.myTeam[i].position === 'R,F'){
+        count.rf++;
       }
     }
 

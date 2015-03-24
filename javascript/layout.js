@@ -28,10 +28,18 @@ $('.centers').appendTo('.row3');
 $('.forwards').appendTo('.row3');
 $('.rucs').appendTo('.row3');
 
+$('.backsForward').appendTo('.row3');
+$('.centersForward').appendTo('.row3');
+$('.rucsForward').appendTo('.row3');
+
 $('.backs').wrap( "<div class='col-sm-3'></div>" );
 $('.centers').wrap( "<div class='col-sm-3'></div>" );
 $('.forwards').wrap( "<div class='col-sm-3'></div>" );
 $('.rucs').wrap( "<div class='col-sm-3'></div>" );
+
+$('.backsForward').wrap( "<div class='col-sm-3'></div>" );
+$('.centersForward').wrap( "<div class='col-sm-3'></div>" );
+$('.rucsForward').wrap( "<div class='col-sm-3'></div>" );
 
 $('.myTeam').appendTo('.row4');
 $('.myTeam').wrap( "<div class='col-sm-12'></div>" );
@@ -41,10 +49,18 @@ $('.centersMyTeam').appendTo('.row5');
 $('.forwardsMyTeam').appendTo('.row5');
 $('.rucsMyTeam').appendTo('.row5');
 
+$('.backsForwardMyTeam').appendTo('.row5');
+$('.centersForwardMyTeam').appendTo('.row5');
+$('.rucsForwardMyTeam').appendTo('.row5');
+
 $('.backsMyTeam').wrap( "<div class='col-sm-3'></div>" );
 $('.centersMyTeam').wrap( "<div class='col-sm-3'></div>" );
 $('.forwardsMyTeam').wrap( "<div class='col-sm-3'></div>" );
 $('.rucsMyTeam').wrap( "<div class='col-sm-3'></div>" );
+
+$('.backsForwardMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.centersForwardMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.rucsForwardMyTeam').wrap( "<div class='col-sm-3'></div>" );
 
 $('table').addClass('table table-striped').wrap( "<div class='table-responsive'></div>" );
 

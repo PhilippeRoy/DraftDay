@@ -74,6 +74,14 @@ globalTable.table.addEventListener('click', function(e){
     forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
     rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
 
+    backForwardTable.addData(filterData(data.whoToShow, 'B,F'));
+    centerForwardTable.addData(filterData(data.whoToShow, 'C,F'));
+    rucsForwardTable.addData(filterData(data.whoToShow, 'R,F'));
+
+    backForwardMyTeamTable.addData(filterData(data.myTeam, 'B,F'));
+    centerForwardMyTeamTable.addData(filterData(data.myTeam, 'C,F'));
+    rucsForwardMyTeamTable.addData(filterData(data.myTeam, 'R,F'));
+
     $('.rounds button:last-child()').trigger('click');
     tableCounter();
 
@@ -105,6 +113,10 @@ globalTable.table.addEventListener('click', function(e){
     forwardsTable.addData(filterData(data.whoToShow, 'F'));
     rucsTable.addData(filterData(data.whoToShow, 'R'));
 
+    backForwardTable.addData(filterData(data.whoToShow, 'B,F'));
+    centerForwardTable.addData(filterData(data.whoToShow, 'C,F'));
+    rucsForwardTable.addData(filterData(data.whoToShow, 'R,F'));
+
     tableCounter();
   }
 
@@ -131,6 +143,10 @@ globalTable.table.addEventListener('click', function(e){
     centerTable.addData(filterData(data.whoToShow, 'C'));
     forwardsTable.addData(filterData(data.whoToShow, 'F'));
     rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+    backForwardTable.addData(filterData(data.whoToShow, 'B,F'));
+    centerForwardTable.addData(filterData(data.whoToShow, 'C,F'));
+    rucsForwardTable.addData(filterData(data.whoToShow, 'R,F'));
 
     tableCounter();
 
@@ -184,6 +200,14 @@ myTeamTable.table.addEventListener('click', function(e){
   forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
   rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
 
+  backForwardTable.addData(filterData(data.whoToShow, 'B,F'));
+  centerForwardTable.addData(filterData(data.whoToShow, 'C,F'));
+  rucsForwardTable.addData(filterData(data.whoToShow, 'R,F'));
+
+  backForwardMyTeamTable.addData(filterData(data.myTeam, 'B,F'));
+  centerForwardMyTeamTable.addData(filterData(data.myTeam, 'C,F'));
+  rucsForwardMyTeamTable.addData(filterData(data.myTeam, 'R,F'));
+
   $('.rounds button').first().trigger('click');
 
   tableCounter();
@@ -213,6 +237,10 @@ filter.display.addEventListener('click', function(e){
    centerTable.addData(filterData(data.whoToShow, 'C'));
    forwardsTable.addData(filterData(data.whoToShow, 'F'));
    rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+   backForwardTable.addData(filterData(data.whoToShow, 'B,F'));
+   centerForwardTable.addData(filterData(data.whoToShow, 'C,F'));
+   rucsForwardTable.addData(filterData(data.whoToShow, 'R,F'));
 
    tableCounter();
 
