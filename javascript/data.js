@@ -10,7 +10,7 @@ var testData = [{"playerId":1,"name":"Tom Rockliff","points":127.0,"team":"BL","
 {"playerId":9,"name":"Steele Sidebottom","points":107.0,"team":"CW","position":"C"},
 {"playerId":10,"name":"Jordan Lewis","points":106.0,"team":"HW","position":"C"},
 {"playerId":11,"name":"Matt Priddis","points":105.6,"team":"WC","position":"C"},
-{"playerId":12,"name":"Dane Swan ","points":105.6,"team":"CW","position":"C, F"},
+{"playerId":12,"name":"Dane Swan ","points":105.6,"team":"CW","position":"C,F"},
 {"playerId":13,"name":"Jack Redden","points":105.1,"team":"BL","position":"C"},
 {"playerId":14,"name":"Josh Kennedy","points":105.0,"team":"SY","position":"C"},
 {"playerId":15,"name":"Nat Fyfe","points":104.7,"team":"FR","position":"C"},

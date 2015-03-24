@@ -24,7 +24,7 @@ Display.prototype = {
     var s = '';
 
     for (var key in amounts){
-       s += '<span>'+key+': '+amounts[key]+' </span><br>';
+       s += '<span >'+key+': <span class='+key+'>'+amounts[key]+'</span></span><br>';
     }
 
     this.display.innerHTML = s;

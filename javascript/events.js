@@ -54,6 +54,10 @@ globalTable.table.addEventListener('click', function(e){
     for (var i = 0; i < buttonList.length; i++){
       buttonList[i].setAttribute('disabled', 'disabled');
     }
+
+    var elToRemove = data.reconstructObj(parentRow);
+    //find el in array and remove
+    data.removeObj(parentRow);
     //e.target.setAttribute('disabled', 'disabled');
     //parentRow.style.color = "#00FF00";
     parentRow.className = parentRow.className + ' ' + 'success';
@@ -70,6 +74,8 @@ globalTable.table.addEventListener('click', function(e){
     forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
     rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
 
+    $('.rounds button:last-child()').trigger('click');
+    tableCounter();
 
   }
 
@@ -78,7 +84,6 @@ globalTable.table.addEventListener('click', function(e){
   if(e.target.innerHTML === 'disable'){
     parentRow.style.color = "#AAAAAA";
     parentRow.className = parentRow.className + ' ' + 'danger';
-
 
     //not going through though becuase I need the other button active;
     parentRow.setAttribute('data-disabled', 'disabled');
@@ -99,6 +104,8 @@ globalTable.table.addEventListener('click', function(e){
     centerTable.addData(filterData(data.whoToShow, 'C'));
     forwardsTable.addData(filterData(data.whoToShow, 'F'));
     rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+    tableCounter();
   }
 
 
@@ -125,6 +132,8 @@ globalTable.table.addEventListener('click', function(e){
     forwardsTable.addData(filterData(data.whoToShow, 'F'));
     rucsTable.addData(filterData(data.whoToShow, 'R'));
 
+    tableCounter();
+
   }
 
 
@@ -147,6 +156,9 @@ myTeamTable.table.addEventListener('click', function(e){
 
   myTeamTable.removeRow(data.removeFromMyTeam(parentRow));
 
+  data.restorePlayer('disabled', globalTable);
+
+
   //find in global table and restore
   var index = data.findIndex(parentRow);
 //  console.log(index);
@@ -154,7 +166,7 @@ myTeamTable.table.addEventListener('click', function(e){
 
   foundEl.style.color = "#000";
   foundEl.classList.remove('success');
-  
+
   var buttonList = foundEl.getElementsByTagName('button');
   for (var i = 0; i < buttonList.length; i++){
     buttonList[i].removeAttribute('disabled');
@@ -171,6 +183,10 @@ myTeamTable.table.addEventListener('click', function(e){
   centerMyTeamTable.addData(filterData(data.myTeam, 'C'));
   forwardsMyTeamTable.addData(filterData(data.myTeam, 'F'));
   rucsMyTeamTable.addData(filterData(data.myTeam, 'R'));
+
+  $('.rounds button').first().trigger('click');
+
+  tableCounter();
 
 
 //need to add back too who to show
@@ -197,6 +213,8 @@ filter.display.addEventListener('click', function(e){
    centerTable.addData(filterData(data.whoToShow, 'C'));
    forwardsTable.addData(filterData(data.whoToShow, 'F'));
    rucsTable.addData(filterData(data.whoToShow, 'R'));
+
+   tableCounter();
 
 
 });

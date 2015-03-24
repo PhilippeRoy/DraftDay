@@ -3,6 +3,12 @@ body{
   h4{
     text-align: center;
     text-transform: uppercase;
+
+    span {
+      padding: 0 15px;
+      color: #AAA;
+      font-size: .8em;
+    }
   }
 }
 .row {
@@ -135,4 +141,11 @@ button {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+}
+
+#playerSearch{
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+  width: 50%;
 }

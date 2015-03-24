@@ -58,3 +58,45 @@ $('table').addClass('table table-striped').wrap( "<div class='table-responsive'>
 })();
 
 $('button').addClass('btn btn-default');
+$('table').parents('.row').find('h4').append('<span></span>');
+
+function tableCounter(){
+  $('table').each(function(){
+    var a = $(this).find('tr').length;
+    $(this).parents('.module').parent().find('h4 span').text(a);
+
+  });
+  checkCounter();
+};
+tableCounter();
+
+function checkCounter(){
+
+  var c = $('.counter').find('.c').text();
+  var f = $('.counter').find('.f').text();
+  var b = $('.counter').find('.b').text();
+  var r = $('.counter').find('.r').text();
+
+  c = parseInt(c);
+  f = parseInt(f);
+  b = parseInt(b);
+  r = parseInt(r);
+
+  if(c == cLimit){
+    alert('Hit center limit');
+    cLimit++;
+  }
+  if(f == fLimit){
+    alert('Hit forward limit');
+    fLimit++
+  }
+  if(b == bLimit){
+    alert('Hit back limit');
+    bLimit++;
+  }
+  if(r == rLimit){
+    alert('Hit ruc limit');
+    rLimit++
+  }
+
+}
