@@ -22,8 +22,10 @@ var centerForwardSubModule = dashboard.createSubModule('centersForward');
 var rucsForwardSubModule = dashboard.createSubModule('rucsForward');
 
 var centerRucsSubModule = dashboard.createSubModule('centerRucs');
+var backsCenterSubModule = dashboard.createSubModule('backsCenter');
 
 
+//My Team
 var myTeamSubModule = dashboard.createSubModule('myTeam');
 
 var backsMyTeamSubModule = dashboard.createSubModule('backsMyTeam');
@@ -36,6 +38,8 @@ var centerForwardMyTeamSubModule = dashboard.createSubModule('centersForwardMyTe
 var rucsForwardMyTeamSubModule = dashboard.createSubModule('rucsForwardMyTeam');
 
 var centerRucsMyTeamSubModule = dashboard.createSubModule('centerRucsMyTeam');
+var backsCenterMyTeamSubModule = dashboard.createSubModule('backsCenterMyTeam');
+
 
 
 //Create Round Counter
@@ -71,6 +75,10 @@ var rucsForwardMyTeamTable = new Table('rucs-F');
 var centerRucsTable = new Table('centers-R');
 var centerRucsMyTeamTable = new Table('centers-R');
 
+var backsCenterTable = new Table('backs-C');
+var backsCenterMyTeamTable = new Table('backs-C');
+
+
 
 //Add content to sub modules
 dashboard.addContent.call(roundSubModule, rounds);
@@ -97,12 +105,15 @@ dashboard.addContent.call(centerForwardSubModule, centerForwardTable.table);
 dashboard.addContent.call(rucsForwardSubModule, rucsForwardTable.table);
 
 dashboard.addContent.call(centerRucsSubModule, centerRucsTable.table);
+dashboard.addContent.call(backsCenterSubModule, backsCenterTable.table);
+
 
 dashboard.addContent.call(backsForwardMyTeamSubModule, backForwardMyTeamTable.table);
 dashboard.addContent.call(centerForwardMyTeamSubModule, centerForwardMyTeamTable.table);
 dashboard.addContent.call(rucsForwardMyTeamSubModule, rucsForwardMyTeamTable.table);
 
 dashboard.addContent.call(centerRucsMyTeamSubModule, centerRucsMyTeamTable.table);
+dashboard.addContent.call(backsCenterMyTeamSubModule, backsCenterMyTeamTable.table);
 
 
 
@@ -151,6 +162,8 @@ rucsForwardMyTeamTable.addData(filterData(data.myTeam, 'R,F'));
 centerRucsTable.addData(filterData(data.whoToShow, 'C,R'));
 centerRucsMyTeamTable.addData(filterData(data.myTeam, 'C,R'));
 
+backsCenterTable.addData(filterData(data.whoToShow, 'B,C'));
+backsCenterMyTeamTable.addData(filterData(data.myTeam, 'B,C'));
 
 
 globalTable.readSelf('playerid');

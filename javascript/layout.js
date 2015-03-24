@@ -33,6 +33,7 @@ $('.centersForward').appendTo('.row3');
 $('.rucsForward').appendTo('.row3');
 
 $('.centerRucs').appendTo('.row3');
+$('.backsCenter').appendTo('.row3');
 
 
 $('.backs').wrap( "<div class='col-sm-3'></div>" );
@@ -45,6 +46,7 @@ $('.centersForward').wrap( "<div class='col-sm-3'></div>" );
 $('.rucsForward').wrap( "<div class='col-sm-3'></div>" );
 
 $('.centerRucs').wrap( "<div class='col-sm-3'></div>" );
+$('.backsCenter').wrap( "<div class='col-sm-3'></div>" );
 
 
 $('.myTeam').appendTo('.row4');
@@ -60,7 +62,7 @@ $('.centersForwardMyTeam').appendTo('.row5');
 $('.rucsForwardMyTeam').appendTo('.row5');
 
 $('.centerRucsMyTeam').appendTo('.row5');
-
+$('.backsCenterMyTeam').appendTo('.row5');
 
 $('.backsMyTeam').wrap( "<div class='col-sm-3'></div>" );
 $('.centersMyTeam').wrap( "<div class='col-sm-3'></div>" );
@@ -72,6 +74,7 @@ $('.centersForwardMyTeam').wrap( "<div class='col-sm-3'></div>" );
 $('.rucsForwardMyTeam').wrap( "<div class='col-sm-3'></div>" );
 
 $('.centerRucsMyTeam').wrap( "<div class='col-sm-3'></div>" );
+$('.backsCenterMyTeam').wrap( "<div class='col-sm-3'></div>" );
 
 
 $('table').addClass('table table-striped').wrap( "<div class='table-responsive'></div>" );
