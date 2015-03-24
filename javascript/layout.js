@@ -107,11 +107,23 @@ function checkCounter(){
   var f = $('.counter').find('.f').text();
   var b = $('.counter').find('.b').text();
   var r = $('.counter').find('.r').text();
+  var cf = $('.counter').find('.cf').text();
+  var bf = $('.counter').find('.bf').text();
+  var rf = $('.counter').find('.rf').text();
+  var cr = $('.counter').find('.cr').text();
+  var bc = $('.counter').find('.bc').text();
+
 
   c = parseInt(c);
   f = parseInt(f);
   b = parseInt(b);
   r = parseInt(r);
+  cf = parseInt(cf);
+  bf = parseInt(bf);
+  rf = parseInt(rf);
+  cr = parseInt(cr);
+  bc = parseInt(bc);
+
 
   if(c == cLimit){
     alert('Hit center limit');
@@ -126,6 +138,27 @@ function checkCounter(){
     bLimit++;
   }
   if(r == rLimit){
+    alert('Hit ruc limit');
+    rLimit++
+  }
+
+  if(cf == cfLimit){
+    alert('Hit center limit');
+    cLimit++;
+  }
+  if(bf == bfLimit){
+    alert('Hit forward limit');
+    fLimit++
+  }
+  if(rf == rfLimit){
+    alert('Hit back limit');
+    bLimit++;
+  }
+  if(cr == crLimit){
+    alert('Hit ruc limit');
+    rLimit++
+  }
+  if(bc == bcLimit){
     alert('Hit ruc limit');
     rLimit++
   }

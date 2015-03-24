@@ -25,7 +25,19 @@ body h4 {
   height: 50px; }
 
 .global {
-  float: none; }
+  float: none;
+  cursor: move; }
+  .global table tr td:first-child:before {
+    content: '\e236';
+    float: left;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased; }
 
 .global.module table, .myTeam.module table {
   margin: auto; }
@@ -39,6 +51,9 @@ table {
 
 .table-striped > tbody > tr:nth-of-type(odd) {
   background: #ffffff; }
+
+.table > tbody > tr > td {
+  vertical-align: middle; }
 
 table td {
   text-align: center;
