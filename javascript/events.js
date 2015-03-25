@@ -88,7 +88,7 @@ globalTable.table.addEventListener('click', function(e){
     backsCenterTable.addData(filterData(data.whoToShow, 'B,C'));
     backsCenterMyTeamTable.addData(filterData(data.myTeam, 'B,C'));
 
-    $('.rounds button:last-child()').trigger('click');
+  //  $('.rounds button:last-child()').trigger('click');
     tableCounter();
 
   }
@@ -162,6 +162,7 @@ globalTable.table.addEventListener('click', function(e){
 
     tableCounter();
 
+
   }
 
 
@@ -226,7 +227,7 @@ myTeamTable.table.addEventListener('click', function(e){
   backsCenterTable.addData(filterData(data.whoToShow, 'B,C'));
   backsCenterMyTeamTable.addData(filterData(data.myTeam, 'B,C'));
 
-  $('.rounds button').first().trigger('click');
+  //$('.rounds button').first().trigger('click');
 
   tableCounter();
 

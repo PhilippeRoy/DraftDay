@@ -128,6 +128,8 @@ Table.prototype = {
       for (var j = 0; j < tableContent[i].cells.length; j++){
         if(tableContent[i].cells[j].innerHTML === filter){
 
+
+          tableContent[i].style.display = 'none';
           tableContent[i].setAttribute('data-disabled', 'disabled');
           tableContent[i].style.color = "#AAAAAA";
           var buttonList = tableContent[i].getElementsByTagName('button');
@@ -152,6 +154,8 @@ Table.prototype = {
 
       for (var j = 0; j < tableContent[i].cells.length; j++){
         if(tableContent[i].cells[j].innerHTML === filter){
+
+          tableContent[i].style.display = 'table-row';
 
           tableContent[i].style.color = "#000";
 
